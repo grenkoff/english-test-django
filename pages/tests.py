@@ -22,17 +22,17 @@ class HomePageTests(SimpleTestCase):
 
 class TestPageTests(SimpleTestCase):
     def test_url_exists_at_correct_location(self):
-        response = self.client.get("/test/")
+        response = self.client.get("/quiz/")
         self.assertEqual(response.status_code, 200)
 
     def test_url_available_by_name(self):
-        response = self.client.get(reverse("test"))
+        response = self.client.get(reverse("quiz"))
         self.assertEqual(response.status_code, 200)
 
     def test_template_name_correct(self):
-        response = self.client.get(reverse("test"))
-        self.assertTemplateUsed(response, "test.html")
+        response = self.client.get(reverse("quiz"))
+        self.assertTemplateUsed(response, "quiz.html")
 
     def test_template_content(self):
-        response = self.client.get(reverse("test"))
-        self.assertContains(response, "<h1>Test page</h1>")
+        response = self.client.get(reverse("quiz"))
+        self.assertContains(response, "<h1>Quiz page</h1>")

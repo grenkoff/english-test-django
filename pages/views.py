@@ -1,9 +1,10 @@
-from django.views.generic import TemplateView
-
+from django.views.generic import TemplateView, ListView
+from .models import Quiz
 
 class HomePageView(TemplateView):
     template_name = "home.html"
 
 
-class TestPageView(TemplateView):
-    template_name = "test.html"
+class QuizPageView(ListView):
+    model = Quiz
+    template_name = "quiz.html"
