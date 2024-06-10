@@ -1,6 +1,19 @@
-<header>
-    <a href="{% url 'home' %}">Home</a> |
-    <a href="{% url 'quiz' %}">Quiz</a>
-</header>
-
-{% block content %} {% endblock content %}
+{% load static %}
+<html>
+    <head>
+        <title>English Quiz</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h1><a href="{% url 'home' %}" class="tiny5-regular">Discover your English level</a></h1>
+        </header>
+        <div>
+            {% block content %}
+            {% endblock content %}
+        </div>
+    </body>
+</html>
