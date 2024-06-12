@@ -8,12 +8,48 @@
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
     </head>
     <body>
-        <header>
-            <h1><a href="{% url 'home' %}" class="tiny5-regular">Discover your English level</a></h1>
-        </header>
-        <div>
-            {% block content %}
-            {% endblock content %}
+        <div class="container">
+            <header>
+                <div class="main-header">
+                    <div class="logo">
+                        <a href="{% url 'home' %}" class="logo">Like&nbsp;A&nbsp;Native</a>
+                    </div>
+                    <div class="menu">
+                        <a href="{% url 'quiz' %}" class="menu">Quiz</a>
+                    </div>
+                    <div class="login">
+                        <a href="{% url 'home' %}">Login</a>
+                        <a href="{% url 'home' %}">Sign&nbsp;up</a>
+                    </div>
+
+                </div>
+            </header>
+            <div class="content">
+                {% block content %}
+                {% endblock content %}
+            </div>
+            <footer>
+                <div class="main-footer">
+                    <div class="contacts">
+                        <p><h3>LikeANative.io</h3></p>
+                        <p>Communication&nbsp;First.</p>
+                        <p>English courses and immersion programs.</p>
+                        <p><a href="mailto:info@likeanative.io">info@likeanative.io</a></p>
+                        <p>Copyright 2024 LikeANative.</p>
+                        <p><a href="{% url 'home' %}">Privacy policy</a></p>
+                    </div>
+                    <div class="follow">
+                        <p><h3>Follow us on</h3></p>
+                        <p><a href="{% url 'home' %}">Youtube</a></p>
+                        <p><a href="{% url 'home' %}">Facebook</a></p>
+                        <p><a href="{% url 'home' %}">Instagram</a></p>
+                    </div>
+                    <div class="newsletter">
+                        <p><h3>Newsletter</h3></p>
+                        <p>Subscribe for free content.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
     </body>
 </html>

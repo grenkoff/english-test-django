@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h2><a href="{% url 'quiz' %}">Start</a></h2>
+    <div class="main-content">
+        <h1>Discover your English level.</h1>
+        <button onclick="redirectToPage()">Start&nbsp;the&nbsp;Quiz</button>
+
+        <script>
+            function redirectToPage() {
+              window.location.href = "{% url 'quiz' %}"; // Замените ссылку на нужную вам
+            }
+          </script>
+    </div>
 {% endblock content %}
