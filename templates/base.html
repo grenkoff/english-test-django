@@ -19,13 +19,13 @@
                     </div>
                     <div class="login">
                         {% if user.is_authenticated %}
-                            <p>Hi, {{ user.username }}</p>
+                            <a>Hi, {{ user.username }}</a> <!-- нужно заменить тег <a> на другой например на <p> так как это не ссылка -->
+                            <a href="{% url 'logout' %}">Log&nbsp;out</a>
                         {% else %}
-                            <a href="{% url 'login' %}">Log In</a>
-                        {% endif %}
+                            <a href="{% url 'login' %}">Login</a>
                             <a href="{% url 'home' %}">Sign&nbsp;up</a>
+                        {% endif %}
                     </div>
-
                 </div>
             </header>
             <div class="content">
