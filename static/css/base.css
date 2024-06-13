@@ -11,17 +11,19 @@
 h1 {
     font-size: 36px;
     font-weight: bold;
-    margin-bottom: 2rem;
+    margin-bottom: 1.25rem;
 }
 
 h2 {
     font-size: 28px;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 h3 {
     font-size: 22px;
     font-weight: bold;
+    margin-bottom: 0.75rem;
 }
 
 body, html {
@@ -204,6 +206,7 @@ footer div {
 
 .contacts p {
     background-color: #f9ba32;
+    font-size: 16px;
     /* color: #F8F1E5; */
     margin-bottom: 20px;
     /* color: #F8F1E5; */
@@ -216,6 +219,7 @@ footer div {
 
 .contacts a {
     background-color: #f9ba32;
+    font-size: 16px;
     color: #426E86;
     text-decoration: none;
 }
@@ -238,6 +242,7 @@ footer div {
 
 .follow p {
     background-color: #f9ba32;
+    font-size: 16px;
     /* color: #F8F1E5; */
     margin-bottom: 20px;
     /* color: #F8F1E5; */
@@ -250,6 +255,7 @@ footer div {
 
 .follow a {
     background-color: #f9ba32;
+    font-size: 16px;
     color: #426E86;
     text-decoration: none;
 }
@@ -271,6 +277,7 @@ footer div {
 
 .newsletter p {
     background-color: #f9ba32;
+    font-size: 16px;
     /* color: #F8F1E5; */
     margin-bottom: 20px;
     /* color: #F8F1E5; */

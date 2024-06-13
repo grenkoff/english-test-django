@@ -18,8 +18,12 @@
                         <a href="{% url 'quiz' %}" class="menu">Quiz</a>
                     </div>
                     <div class="login">
-                        <a href="{% url 'home' %}">Login</a>
-                        <a href="{% url 'home' %}">Sign&nbsp;up</a>
+                        {% if user.is_authenticated %}
+                            <p>Hi, {{ user.username }}</p>
+                        {% else %}
+                            <a href="{% url 'login' %}">Log In</a>
+                        {% endif %}
+                            <a href="{% url 'home' %}">Sign&nbsp;up</a>
                     </div>
 
                 </div>
