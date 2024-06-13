@@ -14,6 +14,8 @@ class QuizPageView(ListView):
     template_name = "quiz.html"
 
 
+# как в книжке Винсента на странице 143 не получается
+# чат написал мне вот такую кастомную функцию для логаута
 def custom_logout_view(request):
     logout(request)
     return redirect("home")
