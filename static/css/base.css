@@ -128,7 +128,22 @@ header div {
     margin: 0 auto;
     padding: 0 10px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 4rem;
+}
+
+.main-content a {
+    color: #007bff; /* Цвет текста ссылки */
+    text-decoration: none; /* Убирает подчеркивание текста */
+    /* font-weight: bold; */
+}
+
+/* Стили для состояния при наведении мыши */
+.main-content a:hover {
+    color: #426E86;
+    /* text-decoration: underline; */
 }
 
 button {

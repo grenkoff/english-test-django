@@ -6,6 +6,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
         <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link href="{% static 'css/form.css' %}" rel="stylesheet">
     </head>
     <body>
         <div class="container">
@@ -20,7 +21,7 @@
                     <div class="login">
                         {% if user.is_authenticated %}
                             <a>Hi, {{ user.username }}</a> <!-- нужно заменить тег <a> на другой например на <p> так как это не ссылка -->
-                            <a href="{% url 'logout' %}">Log&nbsp;out</a>
+                            <a href="{% url 'logout' %}">Logout</a>
                         {% else %}
                             <a href="{% url 'login' %}">Login</a>
                             <a href="{% url 'signup' %}">Sign&nbsp;up</a>
