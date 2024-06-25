@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # Local
     'pages.apps.PagesConfig',
     'accounts.apps.AccountsConfig',
+    'quizzes.apps.QuizzesConfig',
 ]
 
 MIDDLEWARE = [
