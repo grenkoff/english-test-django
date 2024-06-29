@@ -1,8 +1,8 @@
-from django.db import models
+# from django.db import models
 
 
-class Quiz(models.Model):
-    text = models.TextField()
+# class Quiz(models.Model):
+#     text = models.TextField()
 
-    def __str__(self):
-        return self.text[:50]
+#     def __str__(self):
+#         return self.text[:50]

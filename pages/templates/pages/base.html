@@ -5,7 +5,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <link href="{% static 'css/pages.css' %}" rel="stylesheet">
         <link href="{% static 'css/form.css' %}" rel="stylesheet">
     </head>
     <body>
@@ -13,10 +13,10 @@
             <header>
                 <div class="main-header">
                     <div class="logo">
-                        <a href="{% url 'home' %}" class="logo">Like&nbsp;A&nbsp;Native</a>
+                        <a href="{% url 'pages:home' %}" class="logo">Like&nbsp;A&nbsp;Native</a>
                     </div>
                     <div class="menu">
-                        <a href="{% url 'quiz' %}" class="menu">Quiz</a>
+                        <a href="{% url 'quiz:quiz' %}" class="menu">Quiz</a>
                     </div>
                     <div class="login">
                         {% if user.is_authenticated %}
@@ -41,13 +41,13 @@
                         <p>English courses and immersion programs.</p>
                         <p><a href="mailto:info@likeanative.io">info@likeanative.io</a></p>
                         <p>Copyright 2024 LikeANative.</p>
-                        <p><a href="{% url 'home' %}">Privacy policy</a></p>
+                        <p><a href="{% url 'pages:home' %}">Privacy policy</a></p>
                     </div>
                     <div class="follow">
                         <p><h3>Follow us on</h3></p>
-                        <p><a href="{% url 'home' %}">Youtube</a></p>
-                        <p><a href="{% url 'home' %}">Facebook</a></p>
-                        <p><a href="{% url 'home' %}">Instagram</a></p>
+                        <p><a href="{% url 'pages:home' %}">Youtube</a></p>
+                        <p><a href="{% url 'pages:home' %}">Facebook</a></p>
+                        <p><a href="{% url 'pages:home' %}">Instagram</a></p>
                     </div>
                     <div class="newsletter">
                         <p><h3>Newsletter</h3></p>

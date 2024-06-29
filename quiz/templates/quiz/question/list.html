@@ -1,0 +1,54 @@
+{% extends 'quiz/base.html' %}
+
+{% block title %}Quiz{% endblock %}
+
+{% block content %}
+  <h1>Quiz</h1>
+  <p>For the questions below, please choose the best option to complete the sentence or conversation.</p>
+  <form action="{% url 'quiz:results' %}" method="post">
+    {% csrf_token %}
+    {% for question in questions %}
+      <fieldset>
+        <legend><i>{{ question.question_text }}</i></legend>
+        {% for choice in question.choice_set.all %}
+          <div>
+            <button type="button" class="radio-button" data-value="{{ choice.id }}" data-question="{{ question.id }}">
+              {{ choice.choice_text }}
+            </button>
+            <input type="hidden" name="question{{ question.id }}" value="">
+          </div>
+        {% endfor %}
+      </fieldset>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+      const buttons = document.querySelectorAll(".radio-button");
+
+      buttons.forEach(button => {
+          button.addEventListener("click", function() {
+              const questionId = this.getAttribute("data-question");
+              const value = this.getAttribute("data-value");
+
+              // Remove 'selected' class from all buttons in the same question group
+              buttons.forEach(btn => {
+                  if (btn.getAttribute("data-question") === questionId) {
+                      btn.classList.remove("selected");
+                  }
+              });
+
+              // Add 'selected' class to the clicked button
+              this.classList.add("selected");
+
+              // Update hidden input value
+              const hiddenInput = document.querySelector(`input[name="question${questionId}"]`);
+              if (hiddenInput) {
+                  hiddenInput.value = value;
+              }
+          });
+      });
+  });
+  </script>
+{% endblock %}

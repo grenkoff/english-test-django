@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "pages/base.html" %}
 
 {% block content %}
     <div class="main-content">
@@ -7,7 +7,7 @@
 
         <script>
             function redirectToPage() {
-              window.location.href = "{% url 'quiz' %}";
+              window.location.href = "{% url 'quiz:quiz' %}";
             }
           </script>
     </div>
