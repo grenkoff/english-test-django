@@ -1,9 +1,7 @@
-
-port ?= 8000
 m ?= ""
 
 run:
-	python manage.py runserver $(port) # for example, make run port=3939
+	python manage.py runserver
 
 app:
 	python manage.py startapp $(name) # for example, make app name=accounts

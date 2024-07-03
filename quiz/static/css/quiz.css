@@ -41,7 +41,7 @@ body, html {
 }
 
 .content {
-    width: 1000px;
+    width: 100%;
     margin: 0 auto; /* Центрирование блока по горизонтали */
     padding: 0 10px;
     text-align: left; /* Выравнивание содержимого по левому краю */
@@ -72,7 +72,7 @@ legend {
     cursor: pointer;
     outline: none;
     font-size: 18px;
-    width: 80%; /* Кнопки занимают всю ширину контейнера */
+    width: 100%; /* Кнопки занимают всю ширину контейнера */
     box-sizing: border-box; /* Включает padding и border в ширину элемента */
     text-align: left; /* Выравнивание текста по левому краю */
     height: auto; /* Высота кнопки автоматически подстраивается под содержимое */
@@ -88,7 +88,6 @@ legend {
 
 .radio-button.selected {
     background-color: #f9ba32;
-    color: #F8F1E5;
     border-color: #f9ba32;
     /* font-weight: bold; */
 }
@@ -119,7 +118,7 @@ header div {
     display: flex;
     flex-direction: row; /* by default */
     padding: 0 10px;
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -181,7 +180,7 @@ header div {
 
 .main-content {
     /* border: 1px solid #999; */
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 10px;
     text-align: center;
@@ -253,7 +252,7 @@ footer div {
     display: flex;
     flex-direction: row; /* by default */
     /* background-color: #f9ba32; */
-    width: 1000px;
+    width: 100%;
     margin: 0 auto;
     padding: 0 0px;
     margin-bottom: 4rem;
@@ -368,4 +367,70 @@ footer div {
 
 .newsletter a:hover {
     color: #F8F1E5;
+}
+
+@media (min-width: 475px) {
+    .content,
+    header div,
+    .main-header,
+    .main-content,
+    footer div,
+    .main-footer {
+        max-width: 475px;
+    }
+}
+
+@media (min-width: 640px) {
+    .content,
+    header div,
+    .main-header,
+    .main-content,
+    footer div,
+    .main-footer {
+        max-width: 640px;
+    }
+}
+
+@media (min-width: 768px) {
+    .content,
+    header div,
+    .main-header,
+    .main-content,
+    footer div,
+    .main-footer {
+        max-width: 768px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .content,
+    header div,
+    .main-header,
+    .main-content,
+    footer div,
+    .main-footer {
+        max-width: 1024px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .content,
+    header div,
+    .main-header,
+    .main-content,
+    footer div,
+    .main-footer {
+        max-width: 1280px;
+    }
+}
+
+@media (min-width: 1536px) {
+    .content,
+    header div,
+    .main-header,
+    .main-content,
+    footer div,
+    .main-footer {
+        max-width: 1536px;
+    }
 }
