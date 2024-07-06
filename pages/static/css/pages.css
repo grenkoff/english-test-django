@@ -256,6 +256,7 @@ footer div {
     margin: 0 auto;
     padding: 0 0px;
     margin-bottom: 4rem;
+    flex-wrap: wrap;
     /* text-align: left; */
 }
 
@@ -273,6 +274,7 @@ footer div {
     align-items: flex-start;
     align-self: flex-start;
     padding: 0 10px;
+    margin-bottom: 2rem;
 }
 
 .contacts p {
@@ -309,6 +311,7 @@ footer div {
     align-items: flex-start;
     align-self: flex-start;
     padding: 0 10px;
+    margin-bottom: 2rem;
 }
 
 .follow p {
@@ -400,6 +403,10 @@ footer div {
     .main-footer {
         max-width: 768px;
     }
+
+    .main-footer {
+        flex-wrap: nowrap;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -410,6 +417,10 @@ footer div {
     footer div,
     .main-footer {
         max-width: 1024px;
+    }
+
+    .main-footer {
+        flex-wrap: nowrap;
     }
 }
 
@@ -422,6 +433,10 @@ footer div {
     .main-footer {
         max-width: 1280px;
     }
+
+    .main-footer {
+        flex-wrap: nowrap;
+    }
 }
 
 @media (min-width: 1536px) {
@@ -432,5 +447,9 @@ footer div {
     footer div,
     .main-footer {
         max-width: 1536px;
+    }
+
+    .main-footer {
+        flex-wrap: nowrap;
     }
 }

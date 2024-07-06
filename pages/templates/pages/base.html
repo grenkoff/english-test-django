@@ -17,6 +17,8 @@
                     </div>
                     <div class="menu">
                         <a href="{% url 'quiz:quiz' %}" class="menu">Quiz</a>
+                        <a href="{% url 'pages:home' %}" class="menu">Blog</a>
+                        <a href="{% url 'pages:home' %}" class="menu">Shop</a>
                     </div>
                     <div class="login">
                         {% if user.is_authenticated %}

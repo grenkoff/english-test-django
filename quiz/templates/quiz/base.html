@@ -7,26 +7,39 @@
         <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
         <link href="{% static 'css/quiz.css' %}" rel="stylesheet">
         <link href="{% static 'css/form.css' %}" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/2ba9905dc1.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <div class="container">
-            <header>
-                <div class="main-header">
+            <header class="header">
+                <div class='main-header'>
                     <div class="logo">
                         <a href="{% url 'pages:home' %}" class="logo">Like&nbsp;A&nbsp;Native</a>
                     </div>
-                    <div class="menu">
-                        <a href="{% url 'quiz:quiz' %}" class="menu">Quiz</a>
-                    </div>
+                    <nav class="navbar">
+                        <a href="{% url 'quiz:quiz' %}">Quiz</a>
+                        <a href="{% url 'pages:home' %}">Blog</a>
+                        <a href="{% url 'pages:home' %}">Shop</a>
+                    </nav>
                     <div class="login">
                         {% if user.is_authenticated %}
-                            <a>Hi, {{ user.username }}</a> <!-- нужно заменить тег <a> на другой например на <p> так как это не ссылка -->
+                            <p>Hi, {{ user.username }}</p>
                             <a href="{% url 'logout' %}">Logout</a>
                         {% else %}
                             <a href="{% url 'login' %}">Login</a>
                             <a href="{% url 'signup' %}">Sign&nbsp;up</a>
                         {% endif %}
                     </div>
+                    <div class="menu-icon"><i class="fas fa-bars" style="color: #f8f1e5" onclick='changeIcon(this)'></i></div>
+                    {% comment %} <div class="login">
+                        {% if user.is_authenticated %}
+                            <p>Hi, {{ user.username }}</p>
+                            <a href="{% url 'logout' %}">Logout</a>
+                        {% else %}
+                            <a href="{% url 'login' %}">Login</a>
+                            <a href="{% url 'signup' %}">Sign&nbsp;up</a>
+                        {% endif %}
+                    </div> {% endcomment %}
                 </div>
             </header>
             <div class="content">
@@ -56,5 +69,17 @@
                 </div>
             </footer>
         </div>
+        <script>
+            let navbar = document.querySelector('.navbar');
+            let menu = document.querySelector('.menu-icon');
+
+            menu.onclick = () => {
+                navbar.classList.toggle('active');
+            }
+
+            function changeIcon(icon) {
+                icon.classList.toggle('fa-times');
+            }
+        </script>
     </body>
 </html>
