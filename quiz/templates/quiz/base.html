@@ -20,6 +20,15 @@
                         <a href="{% url 'quiz:quiz' %}">Quiz</a>
                         <a href="{% url 'pages:home' %}">Blog</a>
                         <a href="{% url 'pages:home' %}">Shop</a>
+                        <div class="login-sm">
+                            {% if user.is_authenticated %}
+                                <p>Hi, {{ user.username }}</p>
+                                <a href="{% url 'logout' %}">Logout</a>
+                            {% else %}
+                                <a href="{% url 'login' %}">Login</a>
+                                <a href="{% url 'signup' %}">Sign&nbsp;up</a>
+                            {% endif %}
+                        </div>
                     </nav>
                     <div class="login">
                         {% if user.is_authenticated %}
@@ -31,15 +40,6 @@
                         {% endif %}
                     </div>
                     <div class="menu-icon"><i class="fas fa-bars" style="color: #f8f1e5" onclick='changeIcon(this)'></i></div>
-                    {% comment %} <div class="login">
-                        {% if user.is_authenticated %}
-                            <p>Hi, {{ user.username }}</p>
-                            <a href="{% url 'logout' %}">Logout</a>
-                        {% else %}
-                            <a href="{% url 'login' %}">Login</a>
-                            <a href="{% url 'signup' %}">Sign&nbsp;up</a>
-                        {% endif %}
-                    </div> {% endcomment %}
                 </div>
             </header>
             <div class="content">
@@ -70,7 +70,7 @@
             </footer>
         </div>
         <script>
-            let navbar = document.querySelector('.navbar');
+            {% comment %} let navbar = document.querySelector('.navbar');
             let menu = document.querySelector('.menu-icon');
 
             menu.onclick = () => {
@@ -79,7 +79,36 @@
 
             function changeIcon(icon) {
                 icon.classList.toggle('fa-times');
+            } {% endcomment %}
+            let navbar = document.querySelector('.navbar');
+            let menu = document.querySelector('.menu-icon');
+            let timeout;
+
+            menu.onclick = () => {
+                navbar.classList.toggle('active');
             }
+
+            menu.addEventListener('mouseover', () => {
+                clearTimeout(timeout);
+                navbar.classList.add('active');
+            })
+            
+            menu.addEventListener('mouseout', () => {
+                timeout = setTimeout(() => {
+                    navbar.classList.remove('active');
+                }, 200);
+            })
+            
+            navbar.addEventListener('mouseover', () => {
+                clearTimeout(timeout);
+                navbar.classList.add('active');
+            })
+            
+            navbar.addEventListener('mouseout', () => {
+                timeout = setTimeout(() => {
+                    navbar.classList.remove('active');
+                }, 200);
+            })
         </script>
     </body>
 </html>
