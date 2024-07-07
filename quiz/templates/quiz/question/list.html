@@ -31,21 +31,30 @@
           button.addEventListener("click", function() {
               const questionId = this.getAttribute("data-question");
               const value = this.getAttribute("data-value");
-
-              // Remove 'selected' class from all buttons in the same question group
-              buttons.forEach(btn => {
-                  if (btn.getAttribute("data-question") === questionId) {
-                      btn.classList.remove("selected");
+              
+              if (this.classList.contains("selected")) {
+                  // Если кнопка уже выбрана, удаляем класс 'selected' и очищаем значение скрытого поля ввода
+                  this.classList.remove("selected");
+                  const hiddenInput = document.querySelector(`input[name="question${questionId}"]`);
+                  if (hiddenInput) {
+                      hiddenInput.value = "";
                   }
-              });
+              } else {
+                  // Удаляем класс 'selected' со всех кнопок в той же группе вопросов
+                  buttons.forEach(btn => {
+                      if (btn.getAttribute("data-question") === questionId) {
+                          btn.classList.remove("selected");
+                      }
+                  });
 
-              // Add 'selected' class to the clicked button
-              this.classList.add("selected");
+                  // Добавляем класс 'selected' к нажатой кнопке
+                  this.classList.add("selected");
 
-              // Update hidden input value
-              const hiddenInput = document.querySelector(`input[name="question${questionId}"]`);
-              if (hiddenInput) {
-                  hiddenInput.value = value;
+                  // Обновляем значение скрытого поля ввода
+                  const hiddenInput = document.querySelector(`input[name="question${questionId}"]`);
+                  if (hiddenInput) {
+                      hiddenInput.value = value;
+                  }
               }
           });
       });
