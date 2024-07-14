@@ -1,10 +1,20 @@
+:root {
+    --black: #2f3131;
+    --blue: #426e86;
+    --orange: #f9ba32;
+    --white: #f8f1e5;
+    --border: .1rem solid rgba(0,0,0,.1);
+    --box-shadow: 0 .1rem 1rem rgba(0,0,0,0.5);
+}
+
 * {
-    box-sizing: border-box;
-    background-color: #f8f1e5;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    background-color: var(--white);
     font-size: 18px;
-    color: #2f3131;
+    color: var(--black);
+    text-decoration: none;
     font-family: 'Ubuntu Mono', monospace;
 }
 
@@ -34,6 +44,63 @@ body, html {
     height: 100%;
 }
 
+.header {
+    background: var(--blue);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.header .navbar {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: auto;
+    padding: 0 2rem;
+    background-color: var(--blue);
+    box-shadow: var(--box-shadow);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: 0.2s ease;
+    text-align: right;
+}
+
+.header .navbar a {
+    display: block;
+    margin: 0.8rem 0;
+    font-size: 1.5rem;
+    color: var(--white);
+}
+
+.header .navbar a:hover {
+    color: var(--orange);
+}
+
+.header .navbar.active {
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+}
+
+.menu-icon i {
+    font-size: 2rem;
+    padding: 5px;
+    background-color: var(--blue);
+}
+
+nav a {
+    background-color: var(--blue);
+}
+
 .container {
     min-height: 100%;
     display: flex;
@@ -42,12 +109,13 @@ body, html {
 
 .content {
     width: 100%;
-    margin: 0 auto; /* Центрирование блока по горизонтали */
+    margin: 0 auto;
     padding: 0 10px;
-    text-align: left; /* Выравнивание содержимого по левому краю */
+    text-align: left;
     display: flex;
     flex-direction: column;
-    align-items: stretch; /* Выравнивание элементов по ширине контейнера */
+    align-items: stretch;
+    margin-top: 3rem;
     margin-bottom: 4rem;
 }
 
@@ -65,31 +133,29 @@ legend {
 }
 
 .radio-button {
-    padding: 5px 8px; /* Уменьшает внутренние отступы */
-    margin-bottom: 0rem; /* Расстояние между кнопками */
+    padding: 5px 8px;
+    margin-bottom: 0rem;
     border: 1px solid #999;
     background-color: #f9f9f9;
     cursor: pointer;
     outline: none;
     font-size: 18px;
-    width: 100%; /* Кнопки занимают всю ширину контейнера */
-    box-sizing: border-box; /* Включает padding и border в ширину элемента */
-    text-align: left; /* Выравнивание текста по левому краю */
-    height: auto; /* Высота кнопки автоматически подстраивается под содержимое */
-    line-height: normal; /* Нормальная высота строки для текста */
+    width: 100%;
+    box-sizing: border-box;
+    text-align: left;
+    height: auto;
+    line-height: normal;
     border-radius: 4px;
 }
 
 .radio-button:hover {
-    background-color: #f9f9f9; /* Цвет фона при наведении */
-    /* border-color: #0f5132; */
+    background-color: #f9f9f9;
     border: 1px solid #f9ba32;
 }
 
 .radio-button.selected {
     background-color: #f9ba32;
     border-color: #f9ba32;
-    /* font-weight: bold; */
 }
 
 .radio-button:not(:last-child) {
@@ -98,10 +164,11 @@ legend {
 
 header {
     border-bottom: 1px solid #999;
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     display: flex;
     background-color: #426E86;
     height: 100px;
+    /* width: 100%; */
 }
 
 header div {
@@ -114,16 +181,22 @@ header div {
 }
 
 .main-header {
-    /* border: 1px solid #999; */
     display: flex;
-    flex-direction: row; /* by default */
+    flex-direction: row;
     padding: 0 10px;
     width: 100%;
     margin: 0 auto;
 }
 
+.header .main-header .logo {
+    margin-left: 0;
+}
+
+.header .main-header .menu-icon {
+    margin-left: auto;
+}
+
 .logo {
-    /* border: 1px solid #999; */
     background-color: #426E86;
     font-family: "Tiny5", sans-serif;
     font-size: 48px;
@@ -137,28 +210,8 @@ header div {
     color: #f8ae0d;
 }
 
-.menu {
-    /* border: 1px solid #999; */
-    background-color: #426E86;
-    color: #F8F1E5;
-    font-size: 24px;
-    text-decoration: none;
-    justify-content: flex-start;
-    padding-left: 30px;
-}
-
-.menu a {
-    padding-left: 0px;
-}
-
-.menu a:hover {
-    color: #f8ae0d;
-    padding-left: 0px;
-}
-
 .login {
-    /* border: 1px solid #999; */
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: flex-end;
 }
@@ -178,8 +231,29 @@ header div {
     color: #F8F1E5;
 }
 
+.login-sm {
+    display: block;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.login-sm a {
+    background-color: #426E86;
+    margin-bottom: 10px;
+    color: #e5f8eb;
+    text-decoration: none;
+    font-size: 1.2rem !important;
+}
+
+/* .login-sm a:last-child {
+    margin-bottom: 0;
+} */
+
+.login-sm a:hover {
+    color: #F8F1E5;
+}
+
 .main-content {
-    /* border: 1px solid #999; */
     width: 100%;
     margin: 0 auto;
     padding: 0 10px;
@@ -191,15 +265,12 @@ header div {
 }
 
 .main-content a {
-    color: #007bff; /* Цвет текста ссылки */
-    text-decoration: none; /* Убирает подчеркивание текста */
-    /* font-weight: bold; */
+    color: #007bff;
+    text-decoration: none;
 }
 
-/* Стили для состояния при наведении мыши */
 .main-content a:hover {
     color: #426E86;
-    /* text-decoration: underline; */
 }
 
 button {
@@ -211,7 +282,8 @@ button {
     text-align: center;
     border-radius: 10px;
     /* border: 2px dashed black; */
-    border: none;
+    border: 0px solid var(--black);
+    border-bottom: 6px solid var(--black);
     /* outline: none; */
     /* box-shadow: none; */
     padding: 10px 20px;
@@ -222,7 +294,8 @@ button {
 }
   
 button:hover {
-    background-color: #f8ae0d; /* Цвет фона при наведении */
+    background-color: #f8ae0d;
+    border-bottom: 4px solid var(--black);
 }
 
 footer {
@@ -235,7 +308,8 @@ footer {
     padding: 10px;
     margin-top: auto;
     min-height: 50px;
-    height: auto
+    height: auto;
+    width: 100%;
 }
 
 footer div {
@@ -248,16 +322,13 @@ footer div {
 }
 
 .main-footer {
-    /* border: 1px solid #999; */
     display: flex;
-    flex-direction: row; /* by default */
-    /* background-color: #f9ba32; */
+    flex-direction: row;
     width: 100%;
     margin: 0 auto;
     padding: 0 0px;
     margin-bottom: 4rem;
     flex-wrap: wrap;
-    /* text-align: left; */
 }
 
 .main-footer h3 {
@@ -265,9 +336,7 @@ footer div {
 }
 
 .contacts {
-    /* border: 1px solid #999; */
     background-color: #f9ba32;
-    /* text-decoration: none; */
     justify-content: flex-start;
     display: flex;
     flex-direction: column;
@@ -280,9 +349,7 @@ footer div {
 .contacts p {
     background-color: #f9ba32;
     font-size: 16px;
-    /* color: #F8F1E5; */
     margin-bottom: 20px;
-    /* color: #F8F1E5; */
     text-decoration: none;
 }
 
@@ -302,9 +369,7 @@ footer div {
 }
 
 .follow {
-    /* border: 1px solid #999; */
     background-color: #f9ba32;
-    /* text-decoration: none; */
     justify-content: flex-start;
     display: flex;
     flex-direction: column;
@@ -317,9 +382,7 @@ footer div {
 .follow p {
     background-color: #f9ba32;
     font-size: 16px;
-    /* color: #F8F1E5; */
     margin-bottom: 20px;
-    /* color: #F8F1E5; */
     text-decoration: none;
 }
 
@@ -339,7 +402,6 @@ footer div {
 }
 
 .newsletter {
-    /* border: 1px solid #999; */
     background-color: #f9ba32;
     justify-content: flex-start;
     display: flex;
@@ -352,9 +414,7 @@ footer div {
 .newsletter p {
     background-color: #f9ba32;
     font-size: 16px;
-    /* color: #F8F1E5; */
     margin-bottom: 20px;
-    /* color: #F8F1E5; */
     text-decoration: none;
 }
 
@@ -375,7 +435,6 @@ footer div {
 @media (min-width: 475px) {
     .content,
     header div,
-    .main-header,
     .main-content,
     footer div,
     .main-footer {
@@ -386,7 +445,6 @@ footer div {
 @media (min-width: 640px) {
     .content,
     header div,
-    .main-header,
     .main-content,
     footer div,
     .main-footer {
@@ -397,7 +455,6 @@ footer div {
 @media (min-width: 768px) {
     .content,
     header div,
-    .main-header,
     .main-content,
     footer div,
     .main-footer {
@@ -407,12 +464,38 @@ footer div {
     .main-footer {
         flex-wrap: nowrap;
     }
+
+    .header .navbar {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        background-color: var(--blue);
+        box-shadow: none;
+        clip-path: none;
+    }
+
+    .header .navbar a {
+        margin: 0 1rem;
+        font-size: 1.5rem;
+        color: var(--white);
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    .login {
+        display: flex;
+    }
+
+    .login-sm {
+        display: none;
+    }
 }
 
 @media (min-width: 1024px) {
     .content,
     header div,
-    .main-header,
     .main-content,
     footer div,
     .main-footer {
@@ -422,12 +505,30 @@ footer div {
     .main-footer {
         flex-wrap: nowrap;
     }
+
+    .header .navbar {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        background-color: var(--blue);
+        box-shadow: none;
+        clip-path: none;
+    }
+
+    .header .navbar a {
+        margin: 0 1rem;
+        font-size: 1.5rem;
+        color: var(--white);
+    }
+
+    .menu-icon {
+        display: none;
+    }
 }
 
 @media (min-width: 1280px) {
     .content,
     header div,
-    .main-header,
     .main-content,
     footer div,
     .main-footer {
@@ -437,12 +538,30 @@ footer div {
     .main-footer {
         flex-wrap: nowrap;
     }
+
+    .header .navbar {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        background-color: var(--blue);
+        box-shadow: none;
+        clip-path: none;
+    }
+
+    .header .navbar a {
+        margin: 0 1rem;
+        font-size: 1.5rem;
+        color: var(--white);
+    }
+
+    .menu-icon {
+        display: none;
+    }
 }
 
 @media (min-width: 1536px) {
     .content,
     header div,
-    .main-header,
     .main-content,
     footer div,
     .main-footer {
@@ -451,5 +570,24 @@ footer div {
 
     .main-footer {
         flex-wrap: nowrap;
+    }
+    
+    .header .navbar {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        background-color: var(--blue);
+        box-shadow: none;
+        clip-path: none;
+    }
+
+    .header .navbar a {
+        margin: 0 1rem;
+        font-size: 1.5rem;
+        color: var(--white);
+    }
+
+    .menu-icon {
+        display: none;
     }
 }

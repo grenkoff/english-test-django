@@ -24,7 +24,7 @@ form input[type="password"] {
 /* Стили для кнопки */
 form .center-button {
     padding: 10px;
-    background-color: #426e86;
+    background-color: #f8ae0d;
     color: #f8f1e5;
     border: none;
     border-radius: 4px;
@@ -35,7 +35,7 @@ form .center-button {
 }
 
 form .center-button:hover {
-    background-color: #426e86;
+    background-color: #f8ae0d;
 }
 
 /* Стили для ошибок валидации */
