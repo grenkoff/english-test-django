@@ -3,8 +3,8 @@
     --blue: #426e86;
     --orange: #f9ba32;
     --white: #f8f1e5;
-    --border: .1rem solid rgba(0,0,0,.1);
-    --box-shadow: 0 .1rem 1rem rgba(0,0,0,0.5);
+    --border: .1rem solid rgba(0, 0, 0, .1);
+    --box-shadow: 0 .1rem 1rem rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -68,6 +68,12 @@ body, html {
     text-align: right;
 }
 
+.header .navbar p {
+    background-color: var(--blue);
+    color: var(--white);
+    text-align: right;
+}
+
 .header .navbar a {
     display: block;
     margin: 0.8rem 0;
@@ -117,6 +123,21 @@ nav a {
     align-items: stretch;
     margin-top: 3rem;
     margin-bottom: 4rem;
+}
+
+.content a {
+    color: var(--blue);
+    font-weight: bold;
+}
+
+.content .input-btn {
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 12px;
+    border: none;
+    border-bottom: 4px solid var(--black);
+    border-radius: 8px;
+    cursor: pointer;
 }
 
 fieldset {
@@ -216,6 +237,12 @@ header div {
     align-items: flex-end;
 }
 
+.login p {
+    background-color: var(--blue);
+    color: var(--white);
+    text-align: right;
+}
+
 .login a {
     background-color: #426E86;
     margin-bottom: 10px;
@@ -246,7 +273,7 @@ header div {
 }
 
 /* .login-sm a:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0px;
 } */
 
 .login-sm a:hover {
@@ -292,7 +319,7 @@ button {
     height: 50px;
     margin: 0rem;
 }
-  
+
 button:hover {
     background-color: #f8ae0d;
     border-bottom: 4px solid var(--black);
@@ -433,6 +460,7 @@ footer div {
 }
 
 @media (min-width: 475px) {
+
     .content,
     header div,
     .main-content,
@@ -443,6 +471,7 @@ footer div {
 }
 
 @media (min-width: 640px) {
+
     .content,
     header div,
     .main-content,
@@ -453,6 +482,7 @@ footer div {
 }
 
 @media (min-width: 768px) {
+
     .content,
     header div,
     .main-content,
@@ -494,6 +524,7 @@ footer div {
 }
 
 @media (min-width: 1024px) {
+
     .content,
     header div,
     .main-content,
@@ -527,6 +558,7 @@ footer div {
 }
 
 @media (min-width: 1280px) {
+
     .content,
     header div,
     .main-content,
@@ -560,6 +592,7 @@ footer div {
 }
 
 @media (min-width: 1536px) {
+
     .content,
     header div,
     .main-content,
@@ -571,7 +604,7 @@ footer div {
     .main-footer {
         flex-wrap: nowrap;
     }
-    
+
     .header .navbar {
         display: flex;
         position: static;
@@ -590,4 +623,42 @@ footer div {
     .menu-icon {
         display: none;
     }
+}
+
+.login .logout-btn {
+    background: var(--blue);
+    color: #f3f7cc;
+    font-size: 18px;
+    border-radius: 0px;
+    border-bottom: 0px;
+    padding: 0px 0px;
+    cursor: pointer;
+    float: left;
+    text-align: center;
+    display: inline;
+    width: 62px;
+    height: 20px;
+    margin: 0px;
+}
+
+.navbar .login-sm button {
+    background-color: var(--blue);
+    color: #f3f7cc;
+    font-size: 18px;
+    border-radius: 0px;
+    border-bottom: 0px;
+    padding: 0px 0px;
+    cursor: pointer;
+    float: right;
+    text-align: center;
+    display: inline;
+    width: 62px;
+    height: 20px;
+    margin: 0rem;
+}
+
+.navbar .login-sm form {
+    background-color: var(--blue);
+    float: right;
+    margin-bottom: 20px;
 }

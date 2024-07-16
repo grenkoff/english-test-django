@@ -5,7 +5,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Tiny5&display=swap" rel="stylesheet">
-        <link href="{% static 'css/pages.css' %}" rel="stylesheet">
+        <link href="{% static 'css/base.css' %}" rel="stylesheet">
         <link href="{% static 'css/form.css' %}" rel="stylesheet">
         <script src="https://kit.fontawesome.com/2ba9905dc1.js" crossorigin="anonymous"></script>
     </head>
@@ -22,21 +22,27 @@
                         <a href="{% url 'pages:home' %}">Shop</a>
                         <div class="login-sm">
                             {% if user.is_authenticated %}
-                                <p>Hi, {{ user.username }}</p>
-                                <a href="{% url 'logout' %}">Logout</a>
+                                <p>Hi,&nbsp;{{ user.username }}</p>
+                                <form action="{% url "logout" %}" method="post">
+                                    <button type="submit" class="logout-sm">Logout</button>
+                                    {% csrf_token %}
+                                </form>
                             {% else %}
                                 <a href="{% url 'login' %}">Login</a>
-                                <a href="{% url 'signup' %}">Sign&nbsp;up</a>
+                                {% comment %} <a href="{% url 'signup' %}">Sign&nbsp;up</a> {% endcomment %}
                             {% endif %}
                         </div>
                     </nav>
                     <div class="login">
                         {% if user.is_authenticated %}
-                            <p>Hi, {{ user.username }}</p>
-                            <a href="{% url 'logout' %}">Logout</a>
+                            <p>Hi,&nbsp;{{ user.username }}</p>
+                            <form action="{% url "logout" %}" method="post">
+                                <button type="submit" class="logout-btn">Logout</button>
+                                {% csrf_token %}
+                            </form>
                         {% else %}
                             <a href="{% url 'login' %}">Login</a>
-                            <a href="{% url 'signup' %}">Sign&nbsp;up</a>
+                            {% comment %} <a href="{% url 'signup' %}">Sign&nbsp;up</a> {% endcomment %}
                         {% endif %}
                     </div>
                     <div class="menu-icon"><i class="fas fa-bars" style="color: #f8f1e5" onclick='changeIcon(this)'></i></div>
